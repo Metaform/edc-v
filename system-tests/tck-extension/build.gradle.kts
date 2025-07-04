@@ -13,16 +13,18 @@
  */
 
 plugins {
-    `java-library`
+    java
 }
 
 dependencies {
-    runtimeOnly(project(":core:negotiation-manager"))
-    runtimeOnly(project(":extensions:banner-extension"))
-    runtimeOnly(libs.edc.bom.controlplane) {
-        exclude("org.eclipse.edc", "control-plane-contract-manager")
-    }
+
+    implementation(libs.edc.spi.core)
+    implementation(libs.edc.spi.contract)
+    implementation(libs.edc.spi.control.plane)
+    implementation(libs.edc.spi.data.plane)
+    implementation(libs.edc.spi.web)
+    implementation(libs.jakarta.rsApi)
+    implementation(libs.nimbus.jwt)
+
 }
-
-
 

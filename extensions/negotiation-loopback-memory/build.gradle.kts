@@ -17,12 +17,12 @@ plugins {
 }
 
 dependencies {
-    runtimeOnly(project(":core:negotiation-manager"))
-    runtimeOnly(project(":extensions:banner-extension"))
-    runtimeOnly(libs.edc.bom.controlplane) {
+    api(libs.edc.spi.core)
+    api(libs.edc.spi.contract)
+    api(project(":spi:v-core-spi"))
+    implementation(libs.edc.core.controlplane) {
         exclude("org.eclipse.edc", "control-plane-contract-manager")
     }
+    implementation(libs.edc.lib.store)
 }
-
-
 

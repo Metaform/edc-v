@@ -12,17 +12,15 @@
  *
  */
 
-plugins {
-    `java-library`
+package org.eclipse.edc.tck.dsp.guard;
+
+import org.eclipse.edc.connector.controlplane.contract.spi.types.negotiation.ContractNegotiation;
+
+/**
+ * Registers contract negotiation triggers.
+ */
+public interface ContractNegotiationTriggerRegistry {
+
+    void register(Trigger<ContractNegotiation> trigger);
+
 }
-
-dependencies {
-    runtimeOnly(project(":core:negotiation-manager"))
-    runtimeOnly(project(":extensions:banner-extension"))
-    runtimeOnly(libs.edc.bom.controlplane) {
-        exclude("org.eclipse.edc", "control-plane-contract-manager")
-    }
-}
-
-
-

@@ -12,17 +12,12 @@
  *
  */
 
-plugins {
-    `java-library`
+package org.eclipse.edc.virtualized.controlplane.contract.spi.negotiation;
+
+import org.eclipse.edc.runtime.metamodel.annotation.ExtensionPoint;
+
+@ExtensionPoint
+public interface ContractNegotiationChangeRegistry {
+
+    void registerChangeListener(ContractNegotiationChangeListener listener);
 }
-
-dependencies {
-    runtimeOnly(project(":core:negotiation-manager"))
-    runtimeOnly(project(":extensions:banner-extension"))
-    runtimeOnly(libs.edc.bom.controlplane) {
-        exclude("org.eclipse.edc", "control-plane-contract-manager")
-    }
-}
-
-
-

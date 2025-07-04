@@ -12,17 +12,15 @@
  *
  */
 
-plugins {
-    `java-library`
+package org.eclipse.edc.tck.dsp.guard;
+
+import org.eclipse.edc.connector.controlplane.transfer.spi.types.TransferProcess;
+
+/**
+ * Registers transfer process triggers.
+ */
+public interface TransferProcessTriggerRegistry {
+
+    void register(Trigger<TransferProcess> trigger);
+
 }
-
-dependencies {
-    runtimeOnly(project(":core:negotiation-manager"))
-    runtimeOnly(project(":extensions:banner-extension"))
-    runtimeOnly(libs.edc.bom.controlplane) {
-        exclude("org.eclipse.edc", "control-plane-contract-manager")
-    }
-}
-
-
-

@@ -12,17 +12,13 @@
  *
  */
 
-plugins {
-    `java-library`
+package org.eclipse.edc.tck.dsp.guard;
+
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+
+/**
+ * An action that is triggered when the predicate matches a condition.
+ */
+public record Trigger<T>(Predicate<Object> predicate, Consumer<T> action) {
 }
-
-dependencies {
-    runtimeOnly(project(":core:negotiation-manager"))
-    runtimeOnly(project(":extensions:banner-extension"))
-    runtimeOnly(libs.edc.bom.controlplane) {
-        exclude("org.eclipse.edc", "control-plane-contract-manager")
-    }
-}
-
-
-
