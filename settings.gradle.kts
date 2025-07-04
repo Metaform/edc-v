@@ -27,7 +27,7 @@ pluginManagement {
 
 // add dependencies
 include(":extensions:banner-extension")
-include(":runtimes:controlplane-base")
-include(":runtimes:controlplane-memory")
-include(":runtimes:controlplane-postgres")
+include(":system-tests:runtimes:controlplane-base")
+include(":system-tests:runtimes:controlplane-memory")
+include(":system-tests:runtimes:controlplane-postgres")
 include(":system-tests:runtime-tests")
