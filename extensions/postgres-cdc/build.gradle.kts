@@ -17,12 +17,15 @@ plugins {
 }
 
 dependencies {
-    runtimeOnly(project(":core:negotiation-manager"))
-    runtimeOnly(project(":extensions:banner-extension"))
-    runtimeOnly(libs.edc.bom.controlplane) {
-        exclude("org.eclipse.edc", "control-plane-contract-manager")
-    }
+    api(libs.edc.spi.core)
+    api(libs.edc.spi.contract)
+    api(libs.edc.spi.transaction.datasource)
+    api(project(":spi:v-core-spi"))
+    implementation(libs.postgres)
+    testImplementation(libs.edc.junit)
+    testImplementation(libs.testcontainers.junit)
+    testImplementation(libs.testcontainers.postgres)
+    testImplementation(testFixtures(libs.edc.sql.test.fixtures))
+
 }
-
-
 

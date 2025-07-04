@@ -17,12 +17,11 @@ plugins {
 }
 
 dependencies {
-    runtimeOnly(project(":core:negotiation-manager"))
-    runtimeOnly(project(":extensions:banner-extension"))
-    runtimeOnly(libs.edc.bom.controlplane) {
-        exclude("org.eclipse.edc", "control-plane-contract-manager")
-    }
+    api(project(":spi:v-core-spi"))
+    api(libs.edc.spi.core)
+    api(libs.edc.spi.transaction)
+    api(libs.edc.spi.protocol)
+    api(libs.edc.spi.contract)
+    implementation(libs.opentelemetry.instrumentation.annotations)
 }
-
-
 

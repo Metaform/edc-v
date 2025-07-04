@@ -17,12 +17,14 @@ plugins {
 }
 
 dependencies {
-    runtimeOnly(project(":core:negotiation-manager"))
-    runtimeOnly(project(":extensions:banner-extension"))
-    runtimeOnly(libs.edc.bom.controlplane) {
-        exclude("org.eclipse.edc", "control-plane-contract-manager")
-    }
+    testImplementation(libs.awaitility)
+    testImplementation(libs.edc.junit)
+    testImplementation(libs.restAssured)
+    testImplementation(libs.edc.junit)
+    testImplementation(testFixtures(libs.edc.sql.test.fixtures))
+    testImplementation(libs.testcontainers.junit)
+    testImplementation(libs.testcontainers.vault)
+    testImplementation(libs.testcontainers.postgres)
+    runtimeOnly(libs.parsson)
 }
-
-
 

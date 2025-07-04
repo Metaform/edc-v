@@ -12,17 +12,14 @@
  *
  */
 
-plugins {
-    `java-library`
-}
+package org.eclipse.edc.virtualized.tck.dsp;
 
-dependencies {
-    runtimeOnly(project(":core:negotiation-manager"))
-    runtimeOnly(project(":extensions:banner-extension"))
-    runtimeOnly(libs.edc.bom.controlplane) {
-        exclude("org.eclipse.edc", "control-plane-contract-manager")
+import org.testcontainers.containers.GenericContainer;
+
+public class TckContainer<SELF extends TckContainer<SELF>> extends GenericContainer<SELF> {
+    public TckContainer(String imageName) {
+        super(imageName);
+        addFixedExposedPort(8083, 8083); // TCK will use this as callback address - must be fixed!
     }
+
 }
-
-
-
