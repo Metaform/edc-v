@@ -26,5 +26,9 @@ dependencies {
     testImplementation(libs.testcontainers.vault)
     testImplementation(libs.testcontainers.postgres)
     runtimeOnly(libs.parsson)
+
+
+    testCompileOnly(project(":system-tests:runtimes:tck:tck-controlplane-memory"))
+    testCompileOnly(project(":system-tests:runtimes:tck:tck-controlplane-postgres"))
 }
 

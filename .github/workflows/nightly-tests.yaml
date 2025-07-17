@@ -33,4 +33,4 @@ jobs:
       - uses: ./.github/actions/setup-java
       - name: DSP Compatibility
         run: |
-          ./gradlew -p system-tests/dsp-tck-tests test -DincludeTags="NightlyTest" -PverboseTest=true
+          ./gradlew test -DincludeTags="NightlyTest" -PverboseTest=true
