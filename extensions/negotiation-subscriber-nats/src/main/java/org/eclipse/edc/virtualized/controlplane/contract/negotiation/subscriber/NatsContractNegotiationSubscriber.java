@@ -69,21 +69,23 @@ public class NatsContractNegotiationSubscriber {
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
     private final AtomicBoolean active = new AtomicBoolean(false);
 
-    private final Map<String, ContractNegotiationStates> stateMap = new HashMap<>() {{
-        put(ContractNegotiationInitiated.class.getSimpleName(), INITIAL);
-        put(ContractNegotiationRequested.class.getSimpleName(), REQUESTED);
-        put(ContractNegotiationRequesting.class.getSimpleName(), REQUESTING);
-        put(ContractNegotiationOffering.class.getSimpleName(), OFFERING);
-        put(ContractNegotiationOffered.class.getSimpleName(), OFFERED);
-        put(ContractNegotiationAccepted.class.getSimpleName(), ACCEPTED);
-        put(ContractNegotiationAccepting.class.getSimpleName(), ACCEPTING);
-        put(ContractNegotiationVerified.class.getSimpleName(), VERIFIED);
-        put(ContractNegotiationVerifying.class.getSimpleName(), VERIFYING);
-        put(ContractNegotiationAgreed.class.getSimpleName(), AGREED);
-        put(ContractNegotiationAgreeing.class.getSimpleName(), AGREEING);
-        put(ContractNegotiationFinalizing.class.getSimpleName(), FINALIZING);
-        put(ContractNegotiationTerminating.class.getSimpleName(), TERMINATING);
-    }};
+    private final Map<String, ContractNegotiationStates> stateMap = new HashMap<>() {
+        {
+            put(ContractNegotiationInitiated.class.getSimpleName(), INITIAL);
+            put(ContractNegotiationRequested.class.getSimpleName(), REQUESTED);
+            put(ContractNegotiationRequesting.class.getSimpleName(), REQUESTING);
+            put(ContractNegotiationOffering.class.getSimpleName(), OFFERING);
+            put(ContractNegotiationOffered.class.getSimpleName(), OFFERED);
+            put(ContractNegotiationAccepted.class.getSimpleName(), ACCEPTED);
+            put(ContractNegotiationAccepting.class.getSimpleName(), ACCEPTING);
+            put(ContractNegotiationVerified.class.getSimpleName(), VERIFIED);
+            put(ContractNegotiationVerifying.class.getSimpleName(), VERIFYING);
+            put(ContractNegotiationAgreed.class.getSimpleName(), AGREED);
+            put(ContractNegotiationAgreeing.class.getSimpleName(), AGREEING);
+            put(ContractNegotiationFinalizing.class.getSimpleName(), FINALIZING);
+            put(ContractNegotiationTerminating.class.getSimpleName(), TERMINATING);
+        }
+    };
 
     private Connection connection;
 

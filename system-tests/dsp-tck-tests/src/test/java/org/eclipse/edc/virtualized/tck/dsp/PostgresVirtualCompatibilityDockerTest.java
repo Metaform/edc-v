@@ -72,7 +72,7 @@ public class PostgresVirtualCompatibilityDockerTest {
     @RegisterExtension
     static final NatsEndToEndExtension NATS_EXTENSION = new NatsEndToEndExtension();
     @RegisterExtension
-    static final RuntimeExtension runtime = new RuntimePerClassExtension(new EmbeddedRuntime(CONNECTOR, ":system-tests:runtimes:tck:tck-controlplane-postgres")
+    static final RuntimeExtension RUNTIME = new RuntimePerClassExtension(new EmbeddedRuntime(CONNECTOR, ":system-tests:runtimes:tck:tck-controlplane-postgres")
             .configurationProvider(PostgresVirtualCompatibilityDockerTest::runtimeConfiguration)
             .configurationProvider(() -> POSTGRESQL_EXTENSION.configFor(CONNECTOR.toLowerCase())));
     @Order(1)

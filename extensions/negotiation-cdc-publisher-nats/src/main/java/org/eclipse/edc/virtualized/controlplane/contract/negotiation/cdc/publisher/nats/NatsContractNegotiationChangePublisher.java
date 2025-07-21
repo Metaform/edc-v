@@ -70,21 +70,23 @@ public class NatsContractNegotiationChangePublisher implements ContractNegotiati
     private final NatsPublisherConfig config;
     private final Supplier<ObjectMapper> objectMapper;
     private final Clock clock;
-    private final Map<ContractNegotiationStates, Function<ContractNegotiation, ContractNegotiationEvent>> eventTypeMap = new HashMap<>() {{
-        put(INITIAL, builder(ContractNegotiationInitiated.Builder::newInstance));
-        put(REQUESTING, builder(ContractNegotiationRequesting.Builder::newInstance));
-        put(REQUESTED, builder(ContractNegotiationRequested.Builder::newInstance));
-        put(OFFERING, builder(ContractNegotiationOffering.Builder::newInstance));
-        put(OFFERED, builder(ContractNegotiationOffered.Builder::newInstance));
-        put(ACCEPTING, builder(ContractNegotiationAccepting.Builder::newInstance));
-        put(ACCEPTED, builder(ContractNegotiationAccepted.Builder::newInstance));
-        put(AGREEING, builder(ContractNegotiationAgreeing.Builder::newInstance));
-        put(AGREED, builder(ContractNegotiationAgreed.Builder::newInstance));
-        put(VERIFYING, builder(ContractNegotiationVerifying.Builder::newInstance));
-        put(VERIFIED, builder(ContractNegotiationVerified.Builder::newInstance));
-        put(FINALIZING, builder(ContractNegotiationFinalizing.Builder::newInstance));
-        put(TERMINATING, builder(ContractNegotiationTerminating.Builder::newInstance));
-    }};
+    private final Map<ContractNegotiationStates, Function<ContractNegotiation, ContractNegotiationEvent>> eventTypeMap = new HashMap<>() {
+        {
+            put(INITIAL, builder(ContractNegotiationInitiated.Builder::newInstance));
+            put(REQUESTING, builder(ContractNegotiationRequesting.Builder::newInstance));
+            put(REQUESTED, builder(ContractNegotiationRequested.Builder::newInstance));
+            put(OFFERING, builder(ContractNegotiationOffering.Builder::newInstance));
+            put(OFFERED, builder(ContractNegotiationOffered.Builder::newInstance));
+            put(ACCEPTING, builder(ContractNegotiationAccepting.Builder::newInstance));
+            put(ACCEPTED, builder(ContractNegotiationAccepted.Builder::newInstance));
+            put(AGREEING, builder(ContractNegotiationAgreeing.Builder::newInstance));
+            put(AGREED, builder(ContractNegotiationAgreed.Builder::newInstance));
+            put(VERIFYING, builder(ContractNegotiationVerifying.Builder::newInstance));
+            put(VERIFIED, builder(ContractNegotiationVerified.Builder::newInstance));
+            put(FINALIZING, builder(ContractNegotiationFinalizing.Builder::newInstance));
+            put(TERMINATING, builder(ContractNegotiationTerminating.Builder::newInstance));
+        }
+    };
     private JetStream js;
     private Connection connection;
 
