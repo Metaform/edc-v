@@ -11,7 +11,7 @@ nimbus = "10.5"
 opentelemetry = "2.18.0"
 postgres = "42.7.7"
 parsson = "1.1.7"
-nats = "2.21.4"
+nats = "2.22.0"
 
 [libraries]
 # EDC modules
